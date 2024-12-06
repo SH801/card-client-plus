@@ -45,7 +45,7 @@ def export_cards(
     # load on server when requesting card details through card_client.get_card_detail
     cacheddata = {}
     if os.path.isfile(export_location):
-        with open(export_location, 'r') as data:
+        with open(export_location, 'r', encoding="utf-8") as data:
             for line in DictReader(data):
                 if line.get('id') is not None:
                     cacheddata[line['id']] = line
